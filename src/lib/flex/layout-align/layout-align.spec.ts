@@ -10,6 +10,10 @@ import {CommonModule} from '@angular/common';
 import {ComponentFixture, TestBed, inject} from '@angular/core/testing';
 import {Platform} from '@angular/cdk/platform';
 import {
+  customMatchers,
+  expectNativeEl,
+  extendObject,
+  makeCreateTestComponent,
   MatchMedia,
   MockMatchMedia,
   MockMatchMediaProvider,
@@ -17,10 +21,7 @@ import {
   StyleUtils,
 } from '@angular/flex-layout/core';
 
-import {FlexLayoutModule} from '../../module';
-import {extendObject} from '../../utils/object-extend';
-import {customMatchers} from '../../utils/testing/custom-matchers';
-import {makeCreateTestComponent, expectNativeEl} from '../../utils/testing/helpers';
+import {FlexModule} from '../module';
 
 describe('layout-align directive', () => {
   let fixture: ComponentFixture<any>;
@@ -43,7 +44,7 @@ describe('layout-align directive', () => {
 
     // Configure testbed to prepare services
     TestBed.configureTestingModule({
-      imports: [CommonModule, FlexLayoutModule],
+      imports: [CommonModule, FlexModule],
       declarations: [TestLayoutAlignComponent],
       providers: [
         MockMatchMediaProvider,

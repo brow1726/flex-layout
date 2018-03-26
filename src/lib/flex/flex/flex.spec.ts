@@ -11,24 +11,23 @@ import {ComponentFixture, TestBed, async, inject} from '@angular/core/testing';
 import {Platform} from '@angular/cdk/platform';
 import {
   ADD_FLEX_STYLES,
+  customMatchers,
   DISABLE_VENDOR_PREFIXES,
+  expect,
+  expectEl,
+  expectNativeEl,
+  makeCreateTestComponent,
   MatchMedia,
   MockMatchMedia,
   MockMatchMediaProvider,
+  queryFor,
   SERVER_TOKEN,
   StyleUtils,
 } from '@angular/flex-layout/core';
 
-import {FlexLayoutModule} from '../../module';
+import {FlexModule} from '../module';
 import {FlexDirective} from './flex';
 import {LayoutDirective} from '../layout/layout';
-import {customMatchers, expect} from '../../utils/testing/custom-matchers';
-import {
-  makeCreateTestComponent,
-  expectNativeEl,
-  queryFor,
-  expectEl,
-} from '../../utils/testing/helpers';
 
 
 describe('flex directive', () => {
@@ -55,7 +54,7 @@ describe('flex directive', () => {
 
     // Configure testbed to prepare services
     TestBed.configureTestingModule({
-      imports: [CommonModule, FlexLayoutModule],
+      imports: [CommonModule, FlexModule],
       declarations: [TestFlexComponent, TestQueryWithFlexComponent],
       providers: [
         MockMatchMediaProvider,
@@ -692,7 +691,7 @@ describe('flex directive', () => {
 
       // Configure testbed to prepare services
       TestBed.configureTestingModule({
-        imports: [CommonModule, FlexLayoutModule],
+        imports: [CommonModule, FlexModule],
         declarations: [TestFlexComponent, TestQueryWithFlexComponent],
         providers: [
           MockMatchMediaProvider,
@@ -732,7 +731,7 @@ describe('flex directive', () => {
 
       // Configure testbed to prepare services
       TestBed.configureTestingModule({
-        imports: [CommonModule, FlexLayoutModule],
+        imports: [CommonModule, FlexModule],
         declarations: [TestFlexComponent, TestQueryWithFlexComponent],
         providers: [
           MockMatchMediaProvider,
